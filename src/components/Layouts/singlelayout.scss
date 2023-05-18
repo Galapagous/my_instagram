@@ -1,0 +1,15 @@
+.single-main{
+  display: flex;
+  height: 100vh;
+
+  .left-main{
+    flex: 1;
+    height: 100%;
+  }
+
+  .right-main{
+    flex: 3;
+    height: 100%;
+  }
+  
+}

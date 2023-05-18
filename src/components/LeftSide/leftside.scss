@@ -1,0 +1,49 @@
+.left-container{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  height: 100%;
+  overflow: scroll;
+  border-right: 1px solid grey;
+  padding: 0rem 0rem 0rem 1rem;
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  &::-webkit-scrollbar{
+    width: 1px;
+  }
+
+  .top{
+    img{
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+    }
+  }
+  .middle, .bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    gap: 5px;
+    .icon-container{
+      
+      svg{
+        transition: width;
+        transition-timing-function: ease;
+        transition-duration: 400ms;
+      }
+      &:hover{
+        cursor: pointer;
+        background-color: rgb(240, 240, 240);
+        border-radius: 15px;
+        svg{
+          width: 35px;
+          height: 35px;
+          color: crimson;
+        }
+      }
+    }
+  }
+}

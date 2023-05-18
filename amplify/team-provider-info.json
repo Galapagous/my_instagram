@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-myinstagram-dev-130017-authRole",
+      "UnauthRoleArn": "arn:aws:iam::827600535793:role/amplify-myinstagram-dev-130017-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::827600535793:role/amplify-myinstagram-dev-130017-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-myinstagram-dev-130017-deployment",
+      "UnauthRoleName": "amplify-myinstagram-dev-130017-unauthRole",
+      "StackName": "amplify-myinstagram-dev-130017",
+      "StackId": "arn:aws:cloudformation:us-east-1:827600535793:stack/amplify-myinstagram-dev-130017/b51985a0-f0bc-11ed-8ed6-126a91fe4611",
+      "AmplifyAppId": "d1m24yons7vxwr"
+    },
+    "categories": {
+      "api": {
+        "myinstagram": {}
+      },
+      "auth": {
+        "myinstagramabec0ef6": {}
+      },
+      "storage": {
+        "instagrammini": {}
+      }
+    }
+  }
+}

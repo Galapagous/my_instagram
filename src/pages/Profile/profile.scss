@@ -1,0 +1,132 @@
+.container{
+  .top-area{
+      margin-left: 50px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      .left-side{
+          svg,img{
+              color: grey;
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              object-fit: cover;
+          }
+      }
+      .right-side{
+          display: flex;
+          align-items: flex-start;
+          gap: 20px;
+          flex-direction: column;
+
+          button{
+            cursor: pointer;
+          }
+          .level-one{
+              
+              button{
+                  background-color: lightgrey;
+                  border: none;
+                  padding: 5px;
+                  color: white;
+                  border-radius: 5px;
+              }
+              svg{
+                  width: 20px;
+                  height: 20px;
+                  object-fit: cover;
+                  cursor: pointer;
+              }
+          }
+          .level-two{
+              display: flex;
+              align-items: center;
+              gap: 30px;
+          }
+          .level-three{
+              font-size: 0.8rem;
+
+          }
+      }
+  }
+  .bottom-area{
+      margin-top: 20px;
+      width: 100%;
+      .top{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap:20px;
+          .item-status{
+             .item-container{
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              cursor: pointer;
+              svg{
+                  width: 15px;
+                  height: 15px;
+                  object-fit: cover;
+              }
+              span{
+                  font-size: 1rem;
+                  color: grey;
+              }
+             } 
+          }
+      }
+      .bottom{
+          padding-top: 20px;
+          .posts, .saved, .tagged{
+              width: 100%;
+              margin: auto;
+                  width: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 5px;
+                  flex-wrap: wrap;
+                  .profileCard{
+                      position: relative;
+                      img{
+                          width: 290px;
+                          height: 300px;
+                          object-fit: cover;
+                          position: relative;
+                          &::after{
+                              position: absolute;
+                              width: 100%;
+                              height: 100%;
+                              content: "";
+                              background-color: black;
+                              opacity: 0.5;
+                              top: 0;
+                              left: 0;
+                              z-index: 2;
+                          }
+                      }
+                      .post-reaction{
+                          display: flex;
+                          align-items: center;
+                          gap: 20px;
+                          position: absolute;
+                          top: 45%;
+                          left: 45%;
+                          svg{
+                              color: white;
+                          }
+                          .like, .comment{
+                              display: flex;
+                              flex-direction: column;
+                              span{
+                                  font-weight: 600;
+                                  color: white;
+                              }
+                          }
+                      }
+                  }
+              
+          }
+      }
+  }
+}

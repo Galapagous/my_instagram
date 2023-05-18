@@ -1,0 +1,76 @@
+.edit-container{
+  width: 100%;
+  height: 95%;
+  .ineer-container{
+    height: 100%;
+    overflow-y: scroll;
+    // border: 1px solid crimson;
+    padding: 2rem;
+  // height: 100vh;
+    overflow-y: scroll;
+  form{
+    display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+      &::-webkit-scrollbar{
+        width: 1px;
+      }
+      svg{
+          display: none;
+      }
+      .write{
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 10px;
+          img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+          label{
+              margin-bottom: 5px;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              img{
+                border: 1px solid grey;
+              }
+          }
+          p{
+              color: grey;
+          }
+          input{
+              width: 300px;
+              height: 30px;
+              padding: 0px 5px;
+          }
+          textarea{
+              width: 300px;
+              height: 150px;
+              padding: 6px;
+          }
+      }
+      button{
+        background-color: green;
+        color: white;
+        padding: 10px;
+        font-weight: 600;
+        border: none;
+        border-radius: 6px;
+        transition: all;
+        transition-timing-function: ease;
+        transition-duration: 400ms;
+        &:hover{
+          cursor: pointer;
+          background-color: white;
+          border: 1px solid green;
+          color: green;
+        }
+      }
+  }
+}
+}

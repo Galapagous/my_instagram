@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Layout from "./components/Layouts/Layout";
+import Single from "./pages/Single/Single";
+import SingleLayout from "./components/Layouts/SingleLayout";
+import Create from "./pages/Create/Create";
+import "@aws-amplify/ui-react/styles.css";
+import {
+  withAuthenticator,
+} from "@aws-amplify/ui-react";
+import Profile from "./pages/Profile/Profile";
 
-function App() {
+
+function App({signOut, user}) {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <Home user={user}/>,
+        },
+      ],
+    },
+    {
+      path: "/single",
+      element: <SingleLayout><Single/></SingleLayout>
+    },
+    {
+      path: "/create",
+      element: <SingleLayout><Create/></SingleLayout>
+    },
+    {
+      path: "/single/:id",
+      element: <SingleLayout><Profile/></SingleLayout>
+    }
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router}/>
   );
 }
 
-export default App;
+export default withAuthenticator(App);
