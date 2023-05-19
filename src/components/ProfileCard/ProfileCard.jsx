@@ -28,7 +28,7 @@ function ProfileCard({data}) {
       setLikes(myLike)
     }
     getInfo()
-  },[])
+  },[data.id, data.image])
   return (
     <div className="profileCard">
         <img src={photo} alt="bedroom"/>

@@ -28,12 +28,12 @@ const Create = () => {
       }
     }
     getUser()
-  }, [])
+  }, [newPost])
 
   const handleSubmit = async (e)=>{
     e.preventDefault()
     // console.log({newPst: newPost})
-    if (!(newPost.title && newPost.description || newPost.image)){
+    if (!(newPost.title && newPost.description && newPost.image)){
       // console.log("Nothing")
       toast("Fill in some input")
       return

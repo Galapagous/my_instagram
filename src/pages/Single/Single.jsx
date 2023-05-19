@@ -38,7 +38,7 @@ const Single = ()=>{
               }
         }
         getUser()
-    },[])
+    },[currUser])
     const [prevAvatar, setPrevAvatar] = useState({})
     const handleAvatar =async (e)=>{
         const file = e.target.files[0]

@@ -57,8 +57,8 @@ const Profile = ()=>{
         } 
     }
     
-    gettheUser()
-},[])
+    gettheUser([queryParams])
+},[queryParams])
 
 const handleFollow = async()=>{
     for(let i = 0; i < followers.length; i++){

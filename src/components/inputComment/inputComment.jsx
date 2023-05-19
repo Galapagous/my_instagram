@@ -12,7 +12,7 @@ const InputComment = ({Imcon, title, desc, time, lime, button})=>{
       }
       getImage()
     }
-  },[])
+  },[lime])
   return(
     <div className="main-container">
     <div className="com-top">

@@ -26,7 +26,11 @@ const Home = ({ user }) => {
         }else{
           const fetchPost = await API.graphql(graphqlOperation(listPosts))
           setPost(fetchPost.data.listPosts.items)
-          setCurrUser(filteredUsers)
+          const sortedPosts = fetchPost.data.listPosts.items.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          );
+          // console.log({sort: sortedPosts})
+          setCurrUser(sortedPosts)
         }
       } catch (error) {
         console.log(error);

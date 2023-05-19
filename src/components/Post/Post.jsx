@@ -1,4 +1,4 @@
-import {Person, Cancel, Bookmark, BookmarkOutlined, ChatOutlined, EmojiEmotionsOutlined, FavoriteOutlined, MoreHoriz, ShareOutlined, EmojiEmotions, Send} from '@mui/icons-material';
+import {Cancel, Bookmark, BookmarkOutlined, ChatOutlined, FavoriteOutlined, MoreHoriz, ShareOutlined, EmojiEmotions, Send} from '@mui/icons-material';
 import "./post.scss"
 import { useEffect, useState } from 'react';
 import { API, Storage, graphqlOperation } from 'aws-amplify';
@@ -31,7 +31,7 @@ const [inputValue, setInputValue] = useState('');
     setPostImage(postPix)
     const getComment = await API.graphql(graphqlOperation(listComments))
     setComment(getComment.data.listComments.items.filter(each_comment=>{
-      return(each_comment.post.id == data.id)
+      return(each_comment.post.id === data.id)
     }))
     setOwnerPix(ownerProfPix)
     const theLikes =await API.graphql(graphqlOperation(listLikes))
@@ -40,7 +40,7 @@ const [inputValue, setInputValue] = useState('');
     }))
     }
     getPhoto()
-  },[likes, comment])
+  },[likes, comment, data.id, data.image, data.owner, user])
   const [viewComment, setViewComment] = useState(false)
   const handleView = ()=>{
     setViewComment(true)

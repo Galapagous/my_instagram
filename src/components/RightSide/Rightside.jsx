@@ -6,7 +6,7 @@ import InputComment from "../inputComment/inputComment"
 import { Link } from "react-router-dom"
 const Rightside = ()=>{
   const [currUser, setCurrUser] = useState({})
-  const [allUser, setAllUser] = useState([])
+  // const [allUser, setAllUser] = useState([])
   const [userPix, setUserPix] = useState("")
   const [otherUsers, setOtherUsers] = useState([])
   useEffect(()=>{
@@ -24,7 +24,7 @@ const Rightside = ()=>{
         setOtherUsers(otherUser)
         console.log(otherUser)
         const pix = await Storage.get(filteredUsers[0].avatar, {expires: 60})
-        setAllUser(listUser.data.listUsers.items)
+        // setAllUser(listUser.data.listUsers.items)
         setUserPix(pix)
         setCurrUser(filteredUsers[0])
 
