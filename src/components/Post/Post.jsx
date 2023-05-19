@@ -1,12 +1,9 @@
 import {Person, Cancel, Bookmark, BookmarkOutlined, ChatOutlined, EmojiEmotionsOutlined, FavoriteOutlined, MoreHoriz, ShareOutlined, EmojiEmotions, Send} from '@mui/icons-material';
-import Post1 from "../Assets/post1.jpg"
 import "./post.scss"
-import Icon from '../Icon/Icon';
-import Post2 from "../Assets/post2.jpg"
 import { useEffect, useState } from 'react';
 import { API, Storage, graphqlOperation } from 'aws-amplify';
-import { getLike, getPost, getUser, listComments, listLikes } from '../../graphql/queries';
-import { createComment, createLike, deleteLike, updatePost } from '../../graphql/mutations';
+import { listComments, listLikes } from '../../graphql/queries';
+import { createComment, createLike, deleteLike} from '../../graphql/mutations';
 import EmojiPicker from 'emoji-picker-react';
 import InputComment from '../inputComment/inputComment';
 import { ToastContainer, toast } from 'react-toastify';
@@ -21,7 +18,6 @@ const [ownerPix, setOwnerPix] = useState("")
 const [likes, setLikes] = useState([])
 const [showText, setShowText] = useState(false)
 const [comment, setComment] = useState([])
-const [commenterImage, setCommenterImage] = useState("")
 const [viewEmojiPlane, setViewEmojiPlane] = useState(false);
 const [inputValue, setInputValue] = useState('');
   useEffect(()=>{

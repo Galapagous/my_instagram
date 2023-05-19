@@ -8,6 +8,7 @@ const Rightside = ()=>{
   const [currUser, setCurrUser] = useState({})
   const [allUser, setAllUser] = useState([])
   const [userPix, setUserPix] = useState("")
+  const [otherUsers, setOtherUsers] = useState([])
   useEffect(()=>{
         const getUser = async()=>{
         const AuthUser = await Auth.currentAuthenticatedUser();
@@ -15,6 +16,13 @@ const Rightside = ()=>{
         const filteredUsers = listUser.data.listUsers.items.filter(
           (item) => item.uniqueId === AuthUser.attributes.sub
         );
+        const otherUser = listUser.data.listUsers.items.filter(each_item=>{
+          return(
+            each_item.uniqueId !== AuthUser.attributes.sub
+          )
+        })
+        setOtherUsers(otherUser)
+        console.log(otherUser)
         const pix = await Storage.get(filteredUsers[0].avatar, {expires: 60})
         setAllUser(listUser.data.listUsers.items)
         setUserPix(pix)
@@ -44,7 +52,7 @@ const Rightside = ()=>{
       </div>
       <div className="bottom">
       <div className="bottom-item">
-        {allUser.map(each_element=>{
+        {otherUsers.map(each_element=>{
           return(
             <div className="bottom-element">
               <InputComment lime = {each_element} title={each_element.name} button="none"/>

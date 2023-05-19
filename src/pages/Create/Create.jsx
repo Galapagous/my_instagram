@@ -11,11 +11,8 @@ import { createPost } from "../../graphql/mutations";
 
 const Create = () => {
   const [needsProfileUpdate, setNeedsProfileUpdate] = useState(false);
-  const [currUser, setCurrUser] = useState({})
   const [newPost, setNewPost] = useState({title: "", description: "", image: ""})
   const [photoView, setPhotoView] = useState({})
-  const [file, setImageFile] = ([])
-  const [imageName, setImageName] = useState(null)
 
   useEffect(()=>{
     const getUser = async()=>{
@@ -27,7 +24,6 @@ const Create = () => {
         setNeedsProfileUpdate(true);
         toast("You need to update your Profile");
       }else{
-        setCurrUser(filteredUsers[0])
         setNewPost({...newPost, userPostsId: filteredUsers[0].id})
       }
     }
@@ -64,7 +60,6 @@ const Create = () => {
         // addUser to s3 bucket storage
         toast("Uploading, please wait")
         const fileExtension = file.name.split(".")[1]
-        setImageName(`${Date.now()}.${fileExtension}`)
         const {key} = await Storage.put(`${Date.now()}.${fileExtension}`,file,`image/${fileExtension}`)
         setNewPost({...newPost, image: key})
         toast("Upload successfull")
