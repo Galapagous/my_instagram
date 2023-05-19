@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Status from "../../components/Status/Status";
 import "./home.scss";
 import Post from "../../components/Post/Post";
 import { API, Auth, graphqlOperation } from "aws-amplify";
@@ -42,7 +41,6 @@ const Home = ({ user }) => {
   return (
     <div className="home-container">
       <ToastContainer></ToastContainer>
-      <Status />
       <div className="post-area">
         {post.map(each_post=>{
           return(

@@ -26,6 +26,7 @@
     flex-direction: column;
     align-items: flex-start;
     position: relative;
+    gap: 3rem;
     
     button{
       border: none;
@@ -36,13 +37,14 @@
       background-color: white;
       position: absolute;
       top: 0;
-      right: 0;
+      right: -2;
       padding: 2rem;
-      width: 300px;
+      width: 250px;
       height: 450px;
       border: 1px solid black;
       border-radius: 3px;
       overflow: scroll;
+      z-index: 2;
       &::-webkit-scrollbar{
         width: 1px;
       }

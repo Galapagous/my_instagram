@@ -100,7 +100,7 @@ const [inputValue, setInputValue] = useState('');
         await navigator.share({
           title: `${data.title}`,
           text: `${data.description}`,
-          url: 'https://localhost:3000',
+          url: 'https://6467c48fa1ba7459514feffd--classy-beijinho-4f97d5.netlify.app/',
         });
       } else {
         alert('Sharing is not supported on this browser');
