@@ -55,7 +55,7 @@ const [inputValue, setInputValue] = useState('');
     try {
       const theLikes =await API.graphql(graphqlOperation(listLikes))
       const listArray = theLikes.data.listLikes.items
-      console.log({list: listArray})
+      // console.log({list: listArray})
       let liker = false
       let status
       for (let i = 0; i < listArray.length; i++){

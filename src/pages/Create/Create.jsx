@@ -36,9 +36,10 @@ const Create = () => {
 
   const handleSubmit = async (e)=>{
     e.preventDefault()
-    console.log({newPst: newPost})
+    // console.log({newPst: newPost})
     if (!(newPost.title && newPost.description || newPost.image)){
-      console.log("Nothing")
+      // console.log("Nothing")
+      toast("Fill in some input")
       return
     }
     try {
@@ -49,7 +50,7 @@ const Create = () => {
         image: newPost.image,
         userPostsId: newPost.userPostsId
       }}))
-      console.log({after: newPost})
+      // console.log({after: newPost})
       toast("Done")
     } catch (error) {
       console.log(error)

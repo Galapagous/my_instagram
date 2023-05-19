@@ -105,6 +105,17 @@ export const onCreateUser = /* GraphQL */ `
         }
         nextToken
       }
+      follow {
+        items {
+          id
+          starId
+          admirerId
+          createdAt
+          updatedAt
+          userFollowId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       userFollowersId
@@ -213,6 +224,17 @@ export const onUpdateUser = /* GraphQL */ `
           updatedAt
           userLikesId
           postLikesId
+        }
+        nextToken
+      }
+      follow {
+        items {
+          id
+          starId
+          admirerId
+          createdAt
+          updatedAt
+          userFollowId
         }
         nextToken
       }
@@ -327,6 +349,17 @@ export const onDeleteUser = /* GraphQL */ `
         }
         nextToken
       }
+      follow {
+        items {
+          id
+          starId
+          admirerId
+          createdAt
+          updatedAt
+          userFollowId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       userFollowersId
@@ -370,6 +403,9 @@ export const onCreatePost = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -463,6 +499,9 @@ export const onUpdatePost = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -554,6 +593,9 @@ export const onDeletePost = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -643,6 +685,9 @@ export const onCreateLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -728,6 +773,9 @@ export const onUpdateLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -811,6 +859,9 @@ export const onDeleteLike = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -935,6 +986,9 @@ export const onCreateComment = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -1019,6 +1073,9 @@ export const onUpdateComment = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -1107,6 +1164,9 @@ export const onDeleteComment = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -1117,6 +1177,282 @@ export const onDeleteComment = /* GraphQL */ `
       updatedAt
       userCommentsId
       postCommentsId
+    }
+  }
+`;
+export const onCreateFollow = /* GraphQL */ `
+  subscription OnCreateFollow($filter: ModelSubscriptionFollowFilterInput) {
+    onCreateFollow(filter: $filter) {
+      id
+      star {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      admirer {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      starId
+      admirerId
+      createdAt
+      updatedAt
+      userFollowId
+    }
+  }
+`;
+export const onUpdateFollow = /* GraphQL */ `
+  subscription OnUpdateFollow($filter: ModelSubscriptionFollowFilterInput) {
+    onUpdateFollow(filter: $filter) {
+      id
+      star {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      admirer {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      starId
+      admirerId
+      createdAt
+      updatedAt
+      userFollowId
+    }
+  }
+`;
+export const onDeleteFollow = /* GraphQL */ `
+  subscription OnDeleteFollow($filter: ModelSubscriptionFollowFilterInput) {
+    onDeleteFollow(filter: $filter) {
+      id
+      star {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      admirer {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      starId
+      admirerId
+      createdAt
+      updatedAt
+      userFollowId
     }
   }
 `;
@@ -1158,6 +1494,9 @@ export const onCreateUserSavedPosts = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -1247,6 +1586,9 @@ export const onUpdateUserSavedPosts = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -1332,6 +1674,9 @@ export const onDeleteUserSavedPosts = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -1421,6 +1766,9 @@ export const onCreateTaggedUsers = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -1508,6 +1856,9 @@ export const onUpdateTaggedUsers = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -1593,6 +1944,9 @@ export const onDeleteTaggedUsers = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt

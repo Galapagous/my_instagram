@@ -108,6 +108,17 @@ export const createUser = /* GraphQL */ `
         }
         nextToken
       }
+      follow {
+        items {
+          id
+          starId
+          admirerId
+          createdAt
+          updatedAt
+          userFollowId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       userFollowersId
@@ -219,6 +230,17 @@ export const updateUser = /* GraphQL */ `
           updatedAt
           userLikesId
           postLikesId
+        }
+        nextToken
+      }
+      follow {
+        items {
+          id
+          starId
+          admirerId
+          createdAt
+          updatedAt
+          userFollowId
         }
         nextToken
       }
@@ -336,6 +358,17 @@ export const deleteUser = /* GraphQL */ `
         }
         nextToken
       }
+      follow {
+        items {
+          id
+          starId
+          admirerId
+          createdAt
+          updatedAt
+          userFollowId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       userFollowersId
@@ -382,6 +415,9 @@ export const createPost = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -478,6 +514,9 @@ export const updatePost = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -572,6 +611,9 @@ export const deletePost = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -664,6 +706,9 @@ export const createLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -752,6 +797,9 @@ export const updateLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -838,6 +886,9 @@ export const deleteLike = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -965,6 +1016,9 @@ export const createComment = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -1052,6 +1106,9 @@ export const updateComment = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -1143,6 +1200,9 @@ export const deleteComment = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -1153,6 +1213,291 @@ export const deleteComment = /* GraphQL */ `
       updatedAt
       userCommentsId
       postCommentsId
+    }
+  }
+`;
+export const createFollow = /* GraphQL */ `
+  mutation CreateFollow(
+    $input: CreateFollowInput!
+    $condition: ModelFollowConditionInput
+  ) {
+    createFollow(input: $input, condition: $condition) {
+      id
+      star {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      admirer {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      starId
+      admirerId
+      createdAt
+      updatedAt
+      userFollowId
+    }
+  }
+`;
+export const updateFollow = /* GraphQL */ `
+  mutation UpdateFollow(
+    $input: UpdateFollowInput!
+    $condition: ModelFollowConditionInput
+  ) {
+    updateFollow(input: $input, condition: $condition) {
+      id
+      star {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      admirer {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      starId
+      admirerId
+      createdAt
+      updatedAt
+      userFollowId
+    }
+  }
+`;
+export const deleteFollow = /* GraphQL */ `
+  mutation DeleteFollow(
+    $input: DeleteFollowInput!
+    $condition: ModelFollowConditionInput
+  ) {
+    deleteFollow(input: $input, condition: $condition) {
+      id
+      star {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      admirer {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      starId
+      admirerId
+      createdAt
+      updatedAt
+      userFollowId
     }
   }
 `;
@@ -1195,6 +1540,9 @@ export const createUserSavedPosts = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -1285,6 +1633,9 @@ export const updateUserSavedPosts = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -1371,6 +1722,9 @@ export const deleteUserSavedPosts = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -1461,6 +1815,9 @@ export const createTaggedUsers = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -1549,6 +1906,9 @@ export const updateTaggedUsers = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -1635,6 +1995,9 @@ export const deleteTaggedUsers = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt

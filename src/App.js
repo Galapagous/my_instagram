@@ -9,13 +9,14 @@ import {
   withAuthenticator,
 } from "@aws-amplify/ui-react";
 import Profile from "./pages/Profile/Profile";
+import Explore from "./pages/Explore/Explore";
 
 
 function App({signOut, user}) {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: <Layout/>,
       children: [
         {
           path: "/",
@@ -30,6 +31,10 @@ function App({signOut, user}) {
     {
       path: "/create",
       element: <SingleLayout><Create/></SingleLayout>
+    },
+    {
+      path: "/explore",
+      element: <SingleLayout><Explore/></SingleLayout>
     },
     {
       path: "/single/:id",

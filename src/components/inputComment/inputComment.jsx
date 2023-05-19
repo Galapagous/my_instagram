@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./inputComment.scss"
 import { Storage } from "aws-amplify"
+import { Link } from "react-router-dom"
 const InputComment = ({Imcon, title, desc, time, lime, button})=>{
   const [userImage, setUserImage]= useState("")
   useEffect(()=>{
@@ -16,7 +17,9 @@ const InputComment = ({Imcon, title, desc, time, lime, button})=>{
     <div className="main-container">
     <div className="com-top">
     <div className="com-left">
+    <Link to={`/single/${lime.id}`}>
       <img src={Imcon || userImage} alt="profile"/>
+    </Link>
     </div>
     <div className="com-right">
       {title && <h4>{title}</h4>}

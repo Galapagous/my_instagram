@@ -37,7 +37,7 @@ const Rightside = ()=>{
             <p>{currUser.username}</p>
           </div>
         </div>
-        <span>Switch</span>
+        <span>{currUser.username}</span>
       </div>
       <div className="middle">
         <h4>Suggestion for you</h4>
@@ -47,8 +47,8 @@ const Rightside = ()=>{
         {allUser.map(each_element=>{
           return(
             <div className="bottom-element">
-              <InputComment lime = {each_element.avatar} title={each_element.name} button="none"/>
-            <span>follow</span>
+              <InputComment lime = {each_element} title={each_element.name} button="none"/>
+            <span>{each_element.username}</span>
             </div>
           )
         })}

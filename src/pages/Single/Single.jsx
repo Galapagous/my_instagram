@@ -31,7 +31,7 @@ const Single = ()=>{
                 toast("You need to update your Profile");
                 setCurrUser({...currUser, uniqueId: userData.attributes.sub})
               }else{
-                console.log({fil: filteredUsers})
+                // console.log({fil: filteredUsers})
                     setCurrUser(filteredUsers[0])
                     const profilePix = await Storage.get(filteredUsers[0].avatar, {expires: 60})
                     setPrevAvatar(profilePix)
@@ -44,10 +44,10 @@ const Single = ()=>{
         const file = e.target.files[0]
         try {
             // addUser to s3 bucket storage
-            console.log("strt update prfPix")
+            // console.log("strt update prfPix")
             const fileExtension = file.name.split(".")[1]
             const {key} = await Storage.put(`${Date.now()}.${fileExtension}`,file,`image/${fileExtension}`)
-            console.log("done with s3 bucket")
+            // console.log("done with s3 bucket")
             setCurrUser({...currUser, avatar: key})
             setPrevAvatar(URL.createObjectURL(file))
             
@@ -65,7 +65,7 @@ const Single = ()=>{
                 await API.graphql(graphqlOperation(createUser, {input: currUser}))
                 //---------create a new user-------------------
             }else{
-                console.log({frmUpd: currUser})
+                // console.log({frmUpd: currUser})
                 await API.graphql(graphqlOperation(updateUser, {input: { 
                     id: currUser.id,
                     name: currUser.name && currUser.name,

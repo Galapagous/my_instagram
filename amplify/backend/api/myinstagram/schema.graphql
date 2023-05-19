@@ -20,6 +20,7 @@ type User @model {
   taggedPost: [Post] @manyToMany(relationName: "TaggedUsers")
   isPrivate: Boolean
   likes: [Like] @hasMany
+  follow: [follow] @hasMany
 }
 
 type Post @model {
@@ -45,4 +46,11 @@ type Comment @model {
   post: Post @belongsTo
   user: User @belongsTo
   content: String!
+}
+type follow @model {
+  id: ID!
+  star: User! @belongsTo(fields: ["starId"])
+  admirer: User! @belongsTo(fields: ["admirerId"])
+  starId: ID!
+  admirerId: ID!
 }

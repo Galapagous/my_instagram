@@ -25,7 +25,53 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
     
+    button{
+      border: none;
+      background-color: inherit;
+    }
+
+    .search{
+      background-color: white;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 2rem;
+      width: 300px;
+      height: 450px;
+      border: 1px solid black;
+      border-radius: 3px;
+      overflow: scroll;
+      &::-webkit-scrollbar{
+        width: 1px;
+      }
+      .top{
+        position: relative;
+        margin-bottom: 5px;
+        input{
+          width: 100%;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid grey;
+        }
+        svg{
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: crimson;
+          cursor: pointer;
+          transition: border;
+          transition-timing-function: ease;
+          transition-duration: 400ms;
+          &:hover{
+            border: 1px solid crimson;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
     gap: 5px;
     .icon-container{
       
@@ -44,6 +90,18 @@
           color: crimson;
         }
       }
+    }
+    
+  }
+  .bottom{
+    position: relative;
+    .menu-item{
+      position: absolute;
+      top: -20;
+      right: 0;
+      border: 1px solid grey;
+      padding: 1rem;
+      background-color: white;
     }
   }
 }

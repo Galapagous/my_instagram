@@ -105,6 +105,17 @@ export const getUser = /* GraphQL */ `
         }
         nextToken
       }
+      follow {
+        items {
+          id
+          starId
+          admirerId
+          createdAt
+          updatedAt
+          userFollowId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       userFollowersId
@@ -149,6 +160,9 @@ export const listUsers = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -196,6 +210,9 @@ export const getPost = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -333,6 +350,9 @@ export const getLike = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -500,6 +520,9 @@ export const getComment = /* GraphQL */ `
         likes {
           nextToken
         }
+        follow {
+          nextToken
+        }
         createdAt
         updatedAt
         userFollowersId
@@ -557,6 +580,149 @@ export const listComments = /* GraphQL */ `
     }
   }
 `;
+export const getFollow = /* GraphQL */ `
+  query GetFollow($id: ID!) {
+    getFollow(id: $id) {
+      id
+      star {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      admirer {
+        id
+        name
+        username
+        phone
+        uniqueId
+        gender
+        avatar
+        bio
+        website
+        followers {
+          nextToken
+        }
+        followings {
+          nextToken
+        }
+        posts {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        savedPost {
+          nextToken
+        }
+        taggedPost {
+          nextToken
+        }
+        isPrivate
+        likes {
+          nextToken
+        }
+        follow {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userFollowersId
+        userFollowingsId
+      }
+      starId
+      admirerId
+      createdAt
+      updatedAt
+      userFollowId
+    }
+  }
+`;
+export const listFollows = /* GraphQL */ `
+  query ListFollows(
+    $filter: ModelFollowFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFollows(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        star {
+          id
+          name
+          username
+          phone
+          uniqueId
+          gender
+          avatar
+          bio
+          website
+          isPrivate
+          createdAt
+          updatedAt
+          userFollowersId
+          userFollowingsId
+        }
+        admirer {
+          id
+          name
+          username
+          phone
+          uniqueId
+          gender
+          avatar
+          bio
+          website
+          isPrivate
+          createdAt
+          updatedAt
+          userFollowersId
+          userFollowingsId
+        }
+        starId
+        admirerId
+        createdAt
+        updatedAt
+        userFollowId
+      }
+      nextToken
+    }
+  }
+`;
 export const getUserSavedPosts = /* GraphQL */ `
   query GetUserSavedPosts($id: ID!) {
     getUserSavedPosts(id: $id) {
@@ -593,6 +759,9 @@ export const getUserSavedPosts = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
@@ -721,6 +890,9 @@ export const getTaggedUsers = /* GraphQL */ `
         }
         isPrivate
         likes {
+          nextToken
+        }
+        follow {
           nextToken
         }
         createdAt
