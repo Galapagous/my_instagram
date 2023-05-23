@@ -8,12 +8,13 @@ import { API, Auth, Storage, graphqlOperation } from "aws-amplify";
 import { listUsers } from "../../graphql/queries";
 import { Navigate } from "react-router-dom";
 import { createPost } from "../../graphql/mutations";
+import {useNavigate} from "react-router-dom"
 
 const Create = () => {
   const [needsProfileUpdate, setNeedsProfileUpdate] = useState(false);
   const [newPost, setNewPost] = useState({title: "", description: "", image: ""})
   const [photoView, setPhotoView] = useState({})
-
+  const navigate = useNavigate()
   useEffect(()=>{
     const getUser = async()=>{
       const AuthUser = await Auth.currentAuthenticatedUser()
@@ -48,6 +49,12 @@ const Create = () => {
       }}))
       // console.log({after: newPost})
       toast("Done")
+      setNewPost({
+        title: "", 
+        description: "", 
+        image: ""
+      })
+      navigate("/")
     } catch (error) {
       console.log(error)
     }

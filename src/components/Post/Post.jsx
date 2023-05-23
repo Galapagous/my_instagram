@@ -115,7 +115,7 @@ const [inputValue, setInputValue] = useState('');
       <div className="post-top">
       <div className="post-left">
       <Link to={`/single/${postOwner.id}`}>
-          <img src={ownerPix} alt='owner pix'/>
+          {ownerPix && <img src={ownerPix} alt='owner pix'/>}
       </Link>
           <h3>{postOwner.username}</h3>
           <span>{<ReactTimeAgo date={data.createdAt} locale="en-US"/>}</span>
@@ -159,17 +159,17 @@ const [inputValue, setInputValue] = useState('');
     {viewComment && <div className="comment-container">
       <div className="comment-area">
       <div className="comm-left">
-        <img src={postImage} alt="post"/>
+        {postImage && <img src={postImage} alt="post"/>}
       </div>
       <div className="comm-right">
         <div className="view-top">
-        <img src={userOwner} alt="post"/>
+        {userOwner && <img src={userOwner} alt="post"/>}
         <h4>{currUser.username}</h4>
         </div>
       <hr/>
       <div className="comm-middle">
       <div className="owner-section">
-      <img src={ownerPix} alt="post"/>
+      {ownerPix && <img src={ownerPix} alt="post"/>}
       <p>{data.description}</p>
       </div>
       <div className="comment-section">
